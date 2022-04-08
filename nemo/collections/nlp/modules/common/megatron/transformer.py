@@ -29,18 +29,18 @@ from nemo.collections.nlp.modules.common.megatron.fused_layer_norm import get_la
 from nemo.collections.nlp.modules.common.megatron.module import MegatronModule
 from nemo.collections.nlp.modules.common.megatron.utils import ApexGuardDefaults, attention_mask_func, erf_gelu
 
-try:
-    from apex.transformer import parallel_state, tensor_parallel
-    from apex.transformer.enums import AttnMaskType, AttnType, LayerType, ModelType
-    from apex.transformer.functional.fused_softmax import FusedScaleMaskSoftmax
-    from apex.transformer.utils import divide as safe_divide
+# try:
+from apex.transformer import parallel_state, tensor_parallel
+from apex.transformer.enums import AttnMaskType, AttnType, LayerType#, ModelType
+from apex.transformer.functional.fused_softmax import FusedScaleMaskSoftmax
+from apex.transformer.utils import divide as safe_divide
 
-    HAVE_APEX = True
-except (ImportError, ModuleNotFoundError):
-    HAVE_APEX = False
+HAVE_APEX = True
+# except (ImportError, ModuleNotFoundError):
+# HAVE_APEX = False
 
     # fake missing classes with None attributes
-    ModelType = AttnMaskType = AttnType = LayerType = ApexGuardDefaults()
+ModelType = ApexGuardDefaults()
 
 """ We use the following notation throughout this file:
      h: hidden size

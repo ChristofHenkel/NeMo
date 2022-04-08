@@ -21,11 +21,11 @@ from nemo.utils import AppState, logging
 
 try:
     from apex.transformer import tensor_parallel
-    from apex.transformer.log_util import set_logging_level
+#     from apex.transformer.log_util import set_logging_level
     from apex.transformer.parallel_state import (
         get_pipeline_model_parallel_rank,
         set_pipeline_model_parallel_rank,
-        set_pipeline_model_parallel_split_rank,
+#         set_pipeline_model_parallel_split_rank,
         set_pipeline_model_parallel_world_size,
         set_tensor_model_parallel_rank,
         set_tensor_model_parallel_world_size,
@@ -78,7 +78,7 @@ def initialize_model_parallel_for_nemo(
 
     set_pipeline_model_parallel_rank(app_state.pipeline_model_parallel_rank)
     set_pipeline_model_parallel_world_size(app_state.pipeline_model_parallel_size)
-    set_pipeline_model_parallel_split_rank(app_state.pipeline_model_parallel_split_rank)
+#     set_pipeline_model_parallel_split_rank(app_state.pipeline_model_parallel_split_rank)
 
     _set_random_seed(seed)
 
@@ -94,7 +94,7 @@ def initialize_model_parallel_for_nemo(
 
     app_state._is_megatron_initialized = True
 
-    set_logging_level(apex_transformer_log_level)
+#     set_logging_level(apex_transformer_log_level)
 
 
 def _set_random_seed(seed_):
